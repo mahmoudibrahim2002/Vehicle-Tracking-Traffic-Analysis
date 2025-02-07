@@ -1,7 +1,7 @@
 # Vehicle Tracking &amp; Traffic Analysis | Computer Vision Project (Speed and Traffic intensity Estimation)
 
 ## 🌐 Overview
-This project implements an advanced vehicle tracking and speed estimation system using **YOLO for object detection**, **ByteTrack for tracking**, and the **Supervision library** for annotation and visualization. It also includes additional features such as vehicle counting, traffic intensity classification, and smoothing techniques for stable speed estimation.
+This project implements a **vehicle tracking**, **speed estimation** and traffic intensity system using the YOLO object detection model and the Supervision library. The implementation is built on a Roboflow's Supervision library , which provides tools for object detection and tracking. The project has gone through several stages of development, each aimed at improving accuracy, stability, and functionality.
 
 ## Features
 - **Vehicle Detection:** Uses YOLO for real-time object detection.
@@ -40,31 +40,6 @@ This project implements an advanced vehicle tracking and speed estimation system
 5. **Speed smoothing is applied** (moving average, exponential smoothing, and Kalman filter).
 6. **Vehicle movement is analyzed**, counting those moving up or down.
 7. **Traffic intensity is classified** and displayed on the video output.
-
-## 📁 File Descriptions
-
-- 📓 **`Traffic Red-Light Running Violation Detection.ipynb`**: The primary Jupyter notebook containing all code and explanations for this project.
-- 🎥 **`traffic_video.mp4`**: Sample video footage used to detect traffic violations.
-- 📄 **`haarcascade_russian_plate_number.xml`**: XML file used for license plate detection.
-- 📘 **`README.md`**: You're currently reading this file! Provides an overview and useful information about the project.
-
-## 🚀 Instructions for Local Execution
-
-1. **Clone this Repository**: First and foremost, clone this repo to your local machine.
-2. **Open the Notebook**: Launch the `Traffic Red-Light Running Violation Detection.ipynb` in Jupyter.
-3. **Setup Dependencies**: Make sure you've installed all necessary Python libraries and have a local MySQL database running.
-4. **Database Credentials**: Inside the notebook, replace the `your_username` and `your_password` placeholders in the database connection section with your actual database credentials.
-5. **Execution**: Execute all cells in the notebook to view the results.
-
-## Installation
-```bash
-pip install ultralytics supervision opencv-python numpy scipy tqdm
-```
-
-## Usage
-```python
-python track_vehicles.py
-```
 
 ## Example Output
 ![Vehicle Tracking Demo](https://img.youtube.com/vi/dzHYjDuRYzs/0.jpg)](https://youtu.be/dzHYjDuRYzs)
