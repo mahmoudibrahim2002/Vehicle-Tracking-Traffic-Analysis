@@ -42,9 +42,9 @@ This project implements a **vehicle tracking**, **speed estimation** and traffic
 7. **Traffic intensity is classified** and displayed on the video output.
 
 ## Example Output
-![Vehicle Tracking Demo]([https://img.youtube.com/vi/7iGKksFZZzY/maxresdefault.jpg])]([https://youtu.be/7iGKksFZZzY])
+[![Demo Video](https://img.youtube.com/vi/7iGKksFZZzY/maxresdefault.jpg)](https://youtu.be/7iGKksFZZzY)
 
 ---
 - 🤝 **Connect on LinkedIn**: [LinkedIn](mahmoud-ibrahim2002)
 - 🌐 **Kaggle Notebook**: Interested in a Kaggle environment? Explore the notebook [here](www.kaggle.com/code/mahmoudibraahim/vehicle-tracking-traffic-analysis).
-- 🎥 **Project Demo**: Watch the live demonstration of this project on [YouTube]([https://youtu.be/7iGKksFZZzY]).
+- 🎥 **Project Demo**: Watch the live demonstration of this project on [YouTube](https://www.youtube.com/watch?v=7iGKksFZZzY&feature=youtu.be).
