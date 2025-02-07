@@ -1,4 +1,3 @@
-pip install ultralytics supervision opencv-python numpy scipy tqdm
 import cv2
 import numpy as np
 import supervision as sv
