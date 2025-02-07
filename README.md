@@ -42,10 +42,9 @@ This project implements a **vehicle tracking**, **speed estimation** and traffic
 7. **Traffic intensity is classified** and displayed on the video output.
 
 ## Example Output
-![Vehicle Tracking Demo](https://img.youtube.com/vi/dzHYjDuRYzs/0.jpg)](https://youtu.be/dzHYjDuRYzs)
+![Vehicle Tracking Demo]([https://img.youtube.com/vi/dzHYjDuRYzs/0.jpg](https://img.youtube.com/vi/7iGKksFZZzY/maxresdefault.jpg))]([https://youtu.be/dzHYjDuRYzs](https://youtu.be/7iGKksFZZzY))
 
 ---
 - 🤝 **Connect on LinkedIn**: [LinkedIn](mahmoud-ibrahim2002)
-- 🌐 **Kaggle Notebook**: Interested in a Kaggle environment? Explore the notebook [here](https://www.kaggle.com/code/farzadnekouei/traffic-red-light-running-violation-detection).
-- 📹 **Input Video Data**: Access the raw and modified video [here](https://www.kaggle.com/datasets/farzadnekouei/license-plate-recognition-for-red-light-violation).
-- 🎥 **Project Demo**: Watch the live demonstration of this project on [YouTube](https://www.youtube.com/watch?v=dzHYjDuRYzs).
+- 🌐 **Kaggle Notebook**: Interested in a Kaggle environment? Explore the notebook [here](www.kaggle.com/code/mahmoudibraahim/vehicle-tracking-traffic-analysis).
+- 🎥 **Project Demo**: Watch the live demonstration of this project on [YouTube]([https://www.youtube.com/watch?v=dzHYjDuRYzs](https://youtu.be/7iGKksFZZzY)).
