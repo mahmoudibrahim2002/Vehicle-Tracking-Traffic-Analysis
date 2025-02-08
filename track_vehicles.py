@@ -8,7 +8,7 @@ from collections import defaultdict, deque
 from scipy.ndimage import gaussian_filter1d
 
 # Video information and frame generator
-SOURCE_VIDEO_PATH = "input_videos/vehicles.mp4"
+SOURCE_VIDEO_PATH = "input_videos/56310-479197605.mp4"
 TARGET_VIDEO_PATH = "output_videos/result.mp4"
 video_info = sv.VideoInfo.from_video_path(video_path=SOURCE_VIDEO_PATH)
 frame_generator = sv.get_video_frames_generator(source_path=SOURCE_VIDEO_PATH)
@@ -231,8 +231,8 @@ def callback(frame: np.ndarray, index: int) -> np.ndarray:
     annotated_frame = label_annotator.annotate(annotated_frame, detections=detections, labels=labels)
     return annotated_frame
 
-# Process the video
-sv.process_video(
-    source_path=SOURCE_VIDEO_PATH,
-    target_path=TARGET_VIDEO_PATH,
-    callback=callback)    
+# Process the video with a progress bar
+with sv.VideoSink(TARGET_VIDEO_PATH, video_info) as sink:
+    for frame in tqdm(frame_generator, total=video_info.total_frames, desc="Processing Video"):
+        annotated_frame = callback(frame, 0)
+        sink.write_frame(annotated_frame)
