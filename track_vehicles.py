@@ -90,7 +90,7 @@ byte_track = sv.ByteTrack(frame_rate=video_info.fps, track_activation_threshold=
 
 # Annotators configuration
 thickness = sv.calculate_optimal_line_thickness(resolution_wh=video_info.resolution_wh)
-text_scale = sv.calculate_optimal_text_scale(resolution_wh=video_info.resolution_wh)
+text_scale = sv.calculate_optimal_text_scale(resolution_wh=video_info.resolution_wh)*0.6
 bounding_box_annotator = sv.BoxAnnotator(thickness=thickness, color_lookup=sv.ColorLookup.TRACK)
 label_annotator = sv.LabelAnnotator(text_scale=text_scale, text_thickness=thickness, text_position=sv.Position.BOTTOM_CENTER, color_lookup=sv.ColorLookup.TRACK)
 trace_annotator = sv.TraceAnnotator(thickness=thickness, trace_length=video_info.fps, position=sv.Position.BOTTOM_CENTER, color_lookup=sv.ColorLookup.TRACK)
