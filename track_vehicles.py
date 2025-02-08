@@ -6,6 +6,7 @@ from ultralytics import YOLO
 from supervision.assets import VideoAssets, download_assets
 from collections import defaultdict, deque
 from scipy.ndimage import gaussian_filter1d
+import os
 
 # Video information and frame generator
 SOURCE_VIDEO_PATH = "input_videos/56310-479197605.mp4"
@@ -13,12 +14,11 @@ TARGET_VIDEO_PATH = "output_videos/result.mp4"
 video_info = sv.VideoInfo.from_video_path(video_path=SOURCE_VIDEO_PATH)
 frame_generator = sv.get_video_frames_generator(source_path=SOURCE_VIDEO_PATH)
 
+# Note: The following code is based on the previous example with additional modifications for vehicle counting and traffic intensity estimation.
+# If you want to implement the code in your video dataset change the SOURCE and upper&lower lines coordinates according to your video.
 # Define the source and target coordinates for perspective transformation
 SOURCE = np.array([
-    [1252, 787],
-    [2298, 803],
-    [5039, 2159],
-    [-550, 2159]
+   [655, 293], [1185, 299], [2919, 1079], [-1700, 1079]
 ])
 
 TARGET_WIDTH = 25
@@ -32,8 +32,8 @@ TARGET = np.array([
 ])
 
 # Define lower and upper lines in the source coordinate system
-lower_line_source = np.array([[1252, 787],[2298, 803],[-5039, 2159],[-550, 2159]])# Bottom edge of the polygon
-upper_line_source = np.array([[-1252, 787],[2298, 803],[-5039, 2159],[-550, 2159]])*2   # Bottom edge of the polygon
+lower_line_source = np.array([[655, 293],[1185, 299],[2919, 1079],[1700, 1079]]) # Top edge of the polygon
+upper_line_source = np.array([[1727, 557],[65, 537],[65, 797],[65, 537]])   # Bottom edge of the polygon
 
 ## Transform Perspective
 class ViewTransformer:
@@ -231,8 +231,34 @@ def callback(frame: np.ndarray, index: int) -> np.ndarray:
     annotated_frame = label_annotator.annotate(annotated_frame, detections=detections, labels=labels)
     return annotated_frame
 
-# Process the video with a progress bar
+# The directory where to save the processed video
+PROCESSED_VIDEO_DIR = "output_videos"
+
+# Create the directory if it doesn't exist
+os.makedirs(PROCESSED_VIDEO_DIR, exist_ok=True)
+
+# Process the video with a progress bar and display it in a window
 with sv.VideoSink(TARGET_VIDEO_PATH, video_info) as sink:
     for frame in tqdm(frame_generator, total=video_info.total_frames, desc="Processing Video"):
         annotated_frame = callback(frame, 0)
+        
+        # Write the annotated frame to the output video
         sink.write_frame(annotated_frame)
+        
+# Release the video window
+cv2.destroyAllWindows()
+
+# After processing, open the saved video file and display it in a window
+cap = cv2.VideoCapture(TARGET_VIDEO_PATH)
+
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        break
+
+    cv2.imshow("Processed Video Playback", frame)
+    if cv2.waitKey(25) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
