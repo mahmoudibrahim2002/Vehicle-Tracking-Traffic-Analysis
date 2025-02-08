@@ -229,6 +229,7 @@ def callback(frame: np.ndarray, index: int) -> np.ndarray:
     annotated_frame = bounding_box_annotator.annotate(frame.copy(), detections=detections)
     annotated_frame = trace_annotator.annotate(scene=annotated_frame, detections=detections)
     annotated_frame = label_annotator.annotate(annotated_frame, detections=detections, labels=labels)
+    return annotated_frame
 
 # Process the video
 sv.process_video(
